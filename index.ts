@@ -7,6 +7,7 @@ import { graphqlHTTP } from 'express-graphql'
 import MainSchema from './graphql/schema'
 import ConnectToDB from './config/db.config'
 import { AuthorRouter } from './routes/Author.routes'
+import { BookRouter } from './routes/Book.routes'
 
 const cors = require('cors')
 const app = express()
@@ -61,6 +62,7 @@ app.use(
   }),
 )
 app.use('/api/author',AuthorRouter)
+app.use('/api/book',BookRouter)
 
 app.get('/welcome', (req: Request, res: Response, next: NextFunction) => {
   return res.status(200).json({
